@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MicroServiceOne;
+﻿using MicroServiceOne;
 using MicroServiceOne.ServiceBus.Events;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace APIOne
 {
@@ -52,7 +46,7 @@ namespace APIOne
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
 
-            eventBus.Subscribe<NotificationEvent, NotificationEventHandler>();
+            eventBus.Subscribe<NotificationEvent, MicroserviceTwoConsumer.Events.Notification>();
         }
     }
 }

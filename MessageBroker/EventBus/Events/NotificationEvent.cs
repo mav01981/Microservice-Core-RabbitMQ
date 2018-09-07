@@ -1,6 +1,6 @@
 ﻿namespace MicroServiceOne
 {
-    public class NotificationEvent : IntegrationEvent
+    public class NotificationEvent: IntegrationEvent
     {
         public int RecordId { get; private set; }
 

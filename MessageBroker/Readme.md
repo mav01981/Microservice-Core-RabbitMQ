@@ -11,3 +11,6 @@ Service
 * Start - C:\Program Files\RabbitMQ Server\rabbitmq_server-3.7.7\sbin>rabbitmq-server start
 
 Message Broker Library.
+
+Admin UI
+http://localhost:15672

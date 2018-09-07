@@ -1,5 +1,8 @@
 ﻿using MicroServiceOne;
 using Microsoft.AspNetCore.Mvc;
+using Models;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace Publisher.Controllers
 {
@@ -14,13 +17,17 @@ namespace Publisher.Controllers
             _eventBus = eventBus;
         }
 
-        // GET api/Publish
-        [HttpGet]
-        public void Get()
+        public IActionResult Get()
         {
-            var @event = new NotificationEvent(1, "This is a new Notification Event !");
+            return Content("<html><body>Publish API version 1.0</body></html>", "text/html", Encoding.UTF8);
+        }
 
-            _eventBus.Publish(@event);
+        [HttpPost]
+        public void CreateOrder([FromBody] OrderDto model)
+        {
+            var @order = new NotificationEvent(1, "Test");
+
+            _eventBus.Publish(@order);
         }
     }
 }
